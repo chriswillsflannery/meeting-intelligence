@@ -18,7 +18,7 @@ import config
 import display
 import enricher
 import watcher
-from modes import finance, general
+from modes import finance, general, software
 
 
 def get_mode(name: str):
@@ -26,8 +26,10 @@ def get_mode(name: str):
         return finance
     elif name == "general":
         return general
+    elif name == "software":
+        return software
     else:
-        print(f"Unknown mode: {name}. Choose 'finance' or 'general'.")
+        print(f"Unknown mode: {name}. Choose 'finance', 'general', or 'software'.")
         sys.exit(1)
 
 
@@ -35,7 +37,7 @@ def main():
     parser = argparse.ArgumentParser(description="Meeting Intelligence Overlay")
     parser.add_argument(
         "--mode",
-        choices=["finance", "general"],
+        choices=["finance", "general", "software"],
         default="general",
         help="Enrichment mode (default: general)",
     )
